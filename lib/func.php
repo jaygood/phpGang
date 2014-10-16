@@ -1,3 +1,4 @@
+
 <?php
 
 function getUsers() {
@@ -28,7 +29,7 @@ function getUser($id) {
     }
 }
 function findByName($query) {
-    $sql = "SELECT * FROM restAPI WHERE name LIKE :query ORDER BY name";    
+    $sql = "SELECT * FROM restAPI WHERE name LIKE :query ORDER BY name";
     try {
         $dbCon = getConnection();
         $stmt = $dbCon->prepare($sql);
@@ -42,9 +43,10 @@ function findByName($query) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
 }
-function addUser() {
+function addUser(){
     global $app;
     $req = $app->request(); // Getting parameter with names
+    //? request()->post
     $paramName = $req->params('name'); // Getting parameter with names
     $paramEmail = $req->params('email'); // Getting parameter with names
 
@@ -58,6 +60,8 @@ function addUser() {
         $stmt->execute();
         $user->id = $dbCon->lastInsertId();
         $dbCon = null;
+        //or
+        //$app->redirect('/users')
         echo json_encode($user);
     } catch(PDOException $e) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
