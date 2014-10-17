@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Slim' => array($vendorDir . '/slim/slim'),
+    'League\\OAuth2\\Server' => array($vendorDir . '/league/oauth2-server/src'),
 );
