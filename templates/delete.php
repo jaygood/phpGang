@@ -1,6 +1,6 @@
 <?php
 if($_POST){
-        echo post_to_url("http://localhost/users/".$_POST['id'], $_POST);
+        echo post_to_url("http://localhrst/users/".$_POST['id'], $_POST);
 } else{
  ?>
 DELETE RECORD.
